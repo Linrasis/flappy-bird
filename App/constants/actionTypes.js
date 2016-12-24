@@ -1,1 +1,0 @@
-export const CHANGE_LIFECYCLE = 'CHANGE_LIFECYCLE'

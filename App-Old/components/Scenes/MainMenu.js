@@ -4,13 +4,16 @@ import { connect } from 'react-redux'
 import { LC_PLAYING } from '../../constants/game'
 import { changeLifeCycle } from '../../actions/game'
 
-import { StyleSheet, View, TouchableOpacity, Image } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native'
 import Title from '../Objects/Title'
 import Logo from '../Objects/Logo'
 import Ground from '../Objects/Ground'
 import Hills from '../Objects/Hills'
 
 class MainMenu extends Component {
+    constructor(props) {
+        super(props)
+    }
     startGame() {
         let { dispatch } = this.props
 
@@ -18,7 +21,8 @@ class MainMenu extends Component {
     }
     render() {
         let { width, height } = this.props
-        let { hillsHeight } = this.props.hills
+        let { groundWidth, groundHeight, groundX, groundY } = this.props.ground
+        let { hillsWidth, hillsHeight, hillsX, hillsY } = this.props.hills
 
         const style = StyleSheet.create({
             wrapper: {
@@ -60,7 +64,7 @@ class MainMenu extends Component {
                     />
                 </TouchableOpacity>
                 <Hills
-                    type="dynamic"
+                    type="static"
                 />
                 <Ground
                     type="dynamic"

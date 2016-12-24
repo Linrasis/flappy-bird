@@ -1,4 +1,4 @@
-import { HILLS_RESET, HILLS_MOVE_LEFT, HILLS_WIDTH, HILLS_HEIGHT, HILLS_X, HILLS_Y } from '../constants/hills'
+import { RESET, MOVE_LEFT, HILLS_WIDTH, HILLS_HEIGHT, HILLS_X, HILLS_Y } from '../constants/hills'
 
 const initialState = {
     hillsWidth: HILLS_WIDTH,
@@ -9,11 +9,11 @@ const initialState = {
 
 function hills(state = initialState, action) {
     switch(action.type) {
-        case HILLS_RESET:
+        case RESET:
             return {...state,
                 hillsX: initialState.hillsX
             }
-        case HILLS_MOVE_LEFT:
+        case MOVE_LEFT:
             return {...state,
                 hillsX: state.hillsX - action.amount
             }

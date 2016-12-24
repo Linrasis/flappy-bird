@@ -9,6 +9,8 @@ class Hills extends Component {
     constructor(props) {
         super(props)
 
+        let { type } = this.props
+
         this.interval = null
         this.update = this.update.bind(this)
     }
@@ -16,7 +18,7 @@ class Hills extends Component {
         let { type } = this.props
 
         if (type === 'dynamic') {
-            this.interval = setInterval(this.update, 1000/60 * .25)
+            this.interval = setInterval(this.update, 1000/60)
         }
     }
     componentWillUnmount() {

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { changeLifeCycle } from '../../actions/game'
 import { LC_WAITING } from '../../constants/game'
 
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
 import PauseButton from '../Objects/PauseButton'
 import Bird from '../Objects/Bird'
 import Hills from '../Objects/Hills'

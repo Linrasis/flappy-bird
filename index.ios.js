@@ -13,7 +13,7 @@ import Game from './App/components/Game'
 
 const store = configureStore()
 
-export default class FloppyBird extends Component {
+class FloppyBird extends Component {
     render() {
         return (
             <Provider store={store}>
@@ -22,5 +22,7 @@ export default class FloppyBird extends Component {
         )
     }
 }
+
+export default FloppyBird
 
 AppRegistry.registerComponent('FloppyBird', () => FloppyBird)
