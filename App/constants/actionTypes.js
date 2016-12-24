@@ -1,1 +1,1 @@
-export const LOAD_GAME = 'LOAD_GAME'
+export const CHANGE_LIFECYCLE = 'CHANGE_LIFECYCLE'

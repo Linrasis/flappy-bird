@@ -16,14 +16,14 @@ class Game extends Component {
     renderScene() {
         let { lifeCycle, width, height } = this.props.game
 
-        if (lifeCycle === LC_WAITING) {
+        if (this.props.game.lifeCycle === LC_WAITING) {
             return (
                 <MainMenu
                     width={width}
                     height={height}
                 />
             )
-        } else if (lifeCycle === LC_PLAYING || lifeCycle === LC_ENDED) {
+        } else if (this.props.game.lifeCycle === LC_PLAYING) {
             return (
                 <Play
                     width={width}

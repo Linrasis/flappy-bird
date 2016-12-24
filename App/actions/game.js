@@ -1,7 +1,8 @@
-import { LOAD_GAME } from '../constants/actionTypes'
+import { CHANGE_LIFECYCLE } from '../constants/actionTypes'
 
-export function loadGame() {
+export function changeLifeCycle(lifeCycle) {
     return {
-        type: LOAD_GAME
+        type: CHANGE_LIFECYCLE,
+        lifeCycle: lifeCycle
     }
 }

@@ -1,5 +1,5 @@
-import { LOAD_GAME } from '../constants/actionTypes'
-import { WIDTH, HEIGHT, GRAVITY, LC_WAITING } from '../constants/game'
+import { CHANGE_LIFECYCLE } from '../constants/actionTypes'
+import { WIDTH, HEIGHT, GRAVITY, LC_WAITING, LC_PLAYING, LC_ENDED } from '../constants/game'
 
 const initialState = {
     width: WIDTH,
@@ -10,8 +10,10 @@ const initialState = {
 
 function game(state = initialState, action) {
     switch(action.type) {
-        case LOAD_GAME:
-            return state
+        case CHANGE_LIFECYCLE:
+            return {...state,
+                lifeCycle: action.lifeCycle
+            }
         default:
             return state
     }

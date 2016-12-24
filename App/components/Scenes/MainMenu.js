@@ -1,12 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { StyleSheet, View, TouchableOpacity, Image } from 'react-native'
+import { LC_PLAYING } from '../../constants/game'
+import { changeLifeCycle } from '../../actions/game'
+
+import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native'
+import Title from '../Objects/Title'
 import Logo from '../Objects/Logo'
 import Ground from '../Objects/Ground'
 import Hills from '../Objects/Hills'
 
 class MainMenu extends Component {
+    constructor(props) {
+        super(props)
+    }
+    startGame() {
+        let { dispatch } = this.props
+
+        dispatch(changeLifeCycle(LC_PLAYING))
+    }
     render() {
         let { width, height } = this.props
         let { groundWidth, groundHeight, groundX, groundY } = this.props.ground
@@ -20,9 +32,6 @@ class MainMenu extends Component {
                 justifyContent: 'center',
                 alignItems: 'center'
             },
-            logo: {
-
-            },
             button: {
                 position: 'absolute',
                 left: (width / 2) - (116 / 2),
@@ -34,21 +43,32 @@ class MainMenu extends Component {
             <View
                 style={style.wrapper}
             >
+                <Title
+                    width={(512 / 2)}
+                    height={(89 / 2)}
+                    x={(width / 2) - ((512 / 2) / 2)}
+                    y={hillsHeight + 150 + (282 / 2) + 80}
+                />
                 <Logo
-                    width={320 * 2}
-                    height={282 * 2}
-                    x={(width / 2) - 320}
-                    y={hillsHeight + 150}
+                    width={320 / 2}
+                    height={282 / 2}
+                    x={(width / 2) - ((320 / 2) / 2)}
+                    y={hillsHeight + 150 + 40}
                 />
                 <TouchableOpacity
                     style={style.button}
+                    onPress={() => this.startGame()}
                 >
                     <Image
                         source={require('../Sprites/PlayButton.png')}
                     />
                 </TouchableOpacity>
-                <Hills />
-                <Ground />
+                <Hills
+                    type="dynamic"
+                />
+                <Ground
+                    type="dynamic"
+                />
             </View>
         )
     }
@@ -56,6 +76,7 @@ class MainMenu extends Component {
 
 function mapStateToProps(state) {
     return {
+        game: state.game,
         ground: state.ground,
         hills: state.hills
     }
